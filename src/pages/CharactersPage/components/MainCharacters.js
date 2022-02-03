@@ -2,9 +2,7 @@ import { useNavigate } from "react-router";
 
 import { CardCharacter, MainStyle, Button } from "../style";
 
-const MainCharacters = (props) => {
-  const characters = props.characters
-
+const MainCharacters = ({ characters }) => {
   let navigate = useNavigate()
 
   const goToDetails = (url) => {

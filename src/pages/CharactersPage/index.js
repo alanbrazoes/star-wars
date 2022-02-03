@@ -24,7 +24,7 @@ const CharactersPage = () => {
       </Header>
       {characters === undefined ? <p>Loading...</p> 
       :
-      <MainCharacters characters={characters}/>}
+      <MainCharacters characters={ characters }/>}
     </>
   );
 }

@@ -8,12 +8,10 @@ import CharactersDetailsPage from "../pages/CharactersDetailsPage";
 
 function Router() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route exact path="/" element={<CharactersPage />}/>
-        <Route exact path="/details/:index" element={<CharactersDetailsPage />}/>
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route exact path="/" element={<CharactersPage />}/>
+      <Route exact path="/details/:index" element={<CharactersDetailsPage />}/>
+    </Routes>
   );
 }
 
