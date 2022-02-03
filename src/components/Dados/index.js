@@ -1,7 +1,6 @@
 import { Section, Div } from '../../pages/CharactersDetailsPage/style'
 
 const Dados = ({ character, planet, films, species }) => {
-  console.log(films)
   return (
     <>
       {character === undefined? 
@@ -13,7 +12,7 @@ const Dados = ({ character, planet, films, species }) => {
           <p>Espécie: {species}</p>
           <p>Gênero: {character.gender}</p>
           <p>Aniversário: {character.birth_year}</p>
-          {planet ? <p> Loading... </p> : <p> Planeta: {planet} </p>}
+          {planet ? <p> Planeta: {planet} </p> : <p> Loading... </p>}
           <p>Cor dos olhos: {character.eye_color}</p>
           <p>Cor dos cabelos: {character.hair_color}</p>
           <p>Altura: {character.height}cm</p>
@@ -24,7 +23,7 @@ const Dados = ({ character, planet, films, species }) => {
           <h2>Filmes</h2>
           {films && films.map((film,i) => {
             return (
-              <p key={i}> {film.title} </p>
+              <p key={i}> {film} </p>
             )
           })}
         </Div>

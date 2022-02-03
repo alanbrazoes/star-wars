@@ -20,10 +20,10 @@ function CharactersDetailsPage() {
 
   const goBack = () => {
     setCharacters({
-      character,
-      planet,
-      films,
-      species,
+      character: '',
+      planet: '',
+      species: '',
+      films: [],
     })
     navigate(-1)
   }

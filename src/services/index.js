@@ -38,38 +38,26 @@ export const getCharacter = async (param) => {
 export const getPlanet = async (url) => {
   let response
   let erro
-  
   try {
-    response = await axios.get(url)
+    const data = await axios.get(url)
+    response = data.data.name
   } catch (error) {
     erro = error
   }
 
   return {
-    response: response && response.data.name,
+    response,
     erro
   }
 }
 
 export const getFilms = async (characterFilms) => {
-  let response
-  let erro
-
-  let newFilm = []
-  await characterFilms.map( async (film) => {
-    try {
-      const responseFilm = await axios.get(film)
-      newFilm = [...newFilm, {title: responseFilm.data.title} ]
-    } catch (error) {
-      erro = error
-    }
+  const teste = characterFilms.map( async (film) => {
+    const t = await axios.get(film)
+    return t.data.title
   })
-  response = newFilm
-
-  return { 
-    response,
-    erro
-  }
+  const fetch = await Promise.all(teste)
+  return { response: fetch }
 }
 
 export const getSpecie = async (character) => {
