@@ -51,19 +51,26 @@ function CharactersDetailsPage() {
   }, [param.index])
 
   const { character, planet, films, species } = characters;
+  console.log(characters)
   return (
     <>
       <Header>
-          <Button onClick={goBack}> Voltar </Button>
+        <Button onClick={goBack}> Voltar </Button>
       </Header>
       <Main>
-        <h1>{character === undefined ? <p> Loading... </p> : character.name}</h1>
-        <Dados 
-          character={ character } 
-          planet={ planet }
-          films={ films }
-          species={ species }
-        />
+        {character === '' ? 
+          <p> Loading... </p> 
+          : (
+          <>
+            <h1>{character.name}</h1>
+            <Dados 
+              character={ character } 
+              planet={ planet }
+              films={ films }
+              species={ species }
+            />
+          </>
+        )}
       </Main>
     </>
   );

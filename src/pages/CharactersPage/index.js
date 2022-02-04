@@ -16,13 +16,13 @@ const CharactersPage = () => {
     }
     fetch()
   }, [])
-
   return (
     <>
       <Header>
         <h1>Star Wars</h1>
       </Header>
-      {characters === undefined ? <p>Loading...</p> 
+      {characters === undefined ? 
+      <p>Loading...</p> 
       :
       <MainCharacters characters={ characters }/>}
     </>
