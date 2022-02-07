@@ -5,6 +5,7 @@ import { useNavigate } from "react-router";
 import { getCharacter, getFilms, getPlanet, getSpecie } from '../../services';
 import { Main, Header, Button } from './style'
 import Dados from "../../components/Dados";
+import { Loading } from "../CharactersPage/style";
 
 function CharactersDetailsPage() {
   const param = useParams()
@@ -59,7 +60,7 @@ function CharactersDetailsPage() {
       </Header>
       <Main>
         {character === '' ? 
-          <p> Loading... </p> 
+          <Loading> Loading... </Loading> 
           : (
           <>
             <h1>{character.name}</h1>

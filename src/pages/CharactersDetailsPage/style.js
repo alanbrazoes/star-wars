@@ -38,3 +38,13 @@ export const Button = styled.button`
         transition: 0.2s;
     }
 `
+export const Loading = styled.h3`
+  width: 100%;
+  heigth: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #ffb703
+`

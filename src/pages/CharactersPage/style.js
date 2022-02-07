@@ -70,3 +70,14 @@ export const Header = styled.header`
 
     margin: 8px;
 `
+
+export const Loading = styled.h3`
+  width: 100%;
+  heigth: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #ffb703
+`
