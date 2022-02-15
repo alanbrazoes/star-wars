@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from "react-router";
+import { useHistory } from "react-router";
 
 import { getCharacters } from '../../services'
 import { Header, Loading, MainStyle, Button, CardCharacter } from './style';
 
 const CharactersPage = () => {
   const [ characters, setCharacters ] = useState()
-  let navigate = useNavigate()
+  let history = useHistory()
 
   useEffect(() => {
     const fetch = async () => {
@@ -17,13 +17,13 @@ const CharactersPage = () => {
   }, [])
   
   const goToDetails = (url) => {
-    navigate(url)
+    history.push(url)
   }
 
   return (
     <>
       <Header>
-        <h1>Star Wars</h1>
+        <h1 data-testid="title">Star Wars</h1>
       </Header>
 
       {characters === undefined ? 

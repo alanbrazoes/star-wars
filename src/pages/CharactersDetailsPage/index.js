@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
-import { useNavigate } from "react-router";
+import { useHistory } from "react-router";
 
 import { getCharacter, getFilms, getPlanet, getSpecie } from '../../services';
 import { Main, Header, Button } from './style'
@@ -17,7 +17,7 @@ function CharactersDetailsPage() {
     films: [],
   })
 
-  let navigate = useNavigate()
+  let history = useHistory()
 
   const goBack = () => {
     setCharacters({
@@ -26,7 +26,7 @@ function CharactersDetailsPage() {
       species: '',
       films: [],
     })
-    navigate(-1)
+    history.goBack()
   }
     
   useEffect(() => {
