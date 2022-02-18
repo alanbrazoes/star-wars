@@ -6,7 +6,7 @@ export const CardCharacter = styled.section`
     
     align-items: center;
 
-    height: 18vh;
+    min-height: content;
     width: 90%;
 
     margin: 4px;

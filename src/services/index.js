@@ -5,33 +5,20 @@ const api = axios.create({
 })
 
 export const getCharacters = async () => {
-  let response
-  let erro
   try {
-    response = await api.get('/people')
+    const response = await api.get('/people')
+    return(await response.data.results)
   } catch (error) {
-    erro = error
-  }
-
-  return {
-    response: response && response.data.results,
-    erro
+    return(false)
   }
 }
 
 export const getCharacter = async (param) => {
-  let response
-  let erro
-
   try {
-    response = await api.get(`/people/${param}/`)
+    const response = await api.get(`/people/${param}/`)
+    return(await response.data.json())
   } catch (error) {
-    erro = error
-  }
-
-  return {
-    response: response && response.data,
-    erro
+    return(error)
   }
 }
 
@@ -76,3 +63,5 @@ export const getSpecie = async (character) => {
     erro
   }
 }
+
+// module.exports = { getCharacters }

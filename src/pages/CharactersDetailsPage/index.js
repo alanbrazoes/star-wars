@@ -7,7 +7,7 @@ import { Main, Header, Button } from './style'
 import Dados from "../../components/Dados";
 import { Loading } from "../CharactersPage/style";
 
-function CharactersDetailsPage() {
+const CharactersDetailsPage = () => {
   const param = useParams()
 
   const [ characters, setCharacters ] = useState({
@@ -52,7 +52,6 @@ function CharactersDetailsPage() {
   }, [param.index])
 
   const { character, planet, films, species } = characters;
-  console.log(characters)
   return (
     <>
       <Header>
