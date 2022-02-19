@@ -19,8 +19,8 @@ const CharactersPage = () => {
     let isMounted = true;
     const response = await getCharacters()
     if (response.length && isMounted) {
-      // setLoading(false)
-      // setCharacters(response)
+      setLoading(false)
+      setCharacters(response)
     }
     return () => {isMounted = false}
   }
