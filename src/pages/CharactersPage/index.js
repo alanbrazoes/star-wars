@@ -3,6 +3,7 @@ import { useHistory } from "react-router";
 
 import { getCharacters } from '../../services'
 import { Header, Loading, MainStyle, Button, CardCharacter } from './style';
+import LoadingComponent from '../../components/Loading';
 
 const CharactersPage = () => {
   let history = useHistory()
@@ -18,8 +19,8 @@ const CharactersPage = () => {
     let isMounted = true;
     const response = await getCharacters()
     if (response.length && isMounted) {
-      setLoading(false)
-      setCharacters(response)
+      // setLoading(false)
+      // setCharacters(response)
     }
     return () => {isMounted = false}
   }
@@ -34,18 +35,21 @@ const CharactersPage = () => {
         <h1 data-testid="title">Star Wars</h1>
       </Header>
 
-      {loading ? <Loading> Loading...</Loading> :
       <MainStyle>
-        {characters?.map(({ name, birth_year, gender, created }, i) => (
-            <CardCharacter key={i}>
-              <h3 data-testid="name">Nome: {name} </h3>
-              <p>Aniversário: {birth_year}</p>
-              <p>Genero: {gender}</p>
-              <Button onClick={() => goToDetails(`/details/${i + 1}`)}>Conhecer {name}</Button>
-            </CardCharacter>
-          ) 
-        )}
-      </MainStyle>}
+        {loading ? <Loading>Loading...</Loading> : 
+          <>
+            {characters?.map(({ name, birth_year, gender, created }, i) => (
+                <CardCharacter key={i}>
+                  <h3 data-testid="name">Nome: {name} </h3>
+                  <p>Aniversário: {birth_year}</p>
+                  <p>Genero: {gender}</p>
+                  <Button onClick={() => goToDetails(`/details/${i + 1}`)}>Conhecer {name}</Button>
+                </CardCharacter>
+              ) 
+            )}
+          </>
+        }
+      </MainStyle>
     </>
   );
 }

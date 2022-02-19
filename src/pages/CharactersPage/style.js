@@ -20,14 +20,11 @@ export const CardCharacter = styled.section`
 
 export const MainStyle = styled.main`
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     flex-wrap: wrap;
 
     max-width: 100%;
     min-width: 100%;
-
-    align-items: center;
-
     @media(max-width: 425px) {
         display: flex;
         flex-direction: column;
