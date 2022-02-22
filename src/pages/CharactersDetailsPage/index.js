@@ -9,15 +9,13 @@ import { Loading } from "../CharactersPage/style";
 
 const CharactersDetailsPage = () => {
   const param = useParams()
-
+  let history = useHistory()
   const [ characters, setCharacters ] = useState({
     character: '',
     planet: '',
     species: '',
     films: [],
   })
-
-  let history = useHistory()
 
   const goBack = () => {
     setCharacters({
@@ -30,26 +28,24 @@ const CharactersDetailsPage = () => {
   }
     
   useEffect(() => {
-    const fetch = async () => {
-      const responseCharacter = await getCharacter(param.index)
-      const responsePlanet = await getPlanet(responseCharacter.response.homeworld)
-      const responseFilms = await getFilms(responseCharacter.response.films)
-      const responseSpecies = await getSpecie(responseCharacter.response.species)
-
-      if(responseCharacter.response 
-        && responsePlanet.response 
-        && responseFilms.response 
-        && responseSpecies.response) {
-          setCharacters({
-            character: responseCharacter.response,
-            planet: responsePlanet.response,
-            species: responseSpecies.response,
-            films: responseFilms.response
-          })
-        } 
-    }
     fetch()
-  }, [param.index])
+  }, [])
+
+  const fetch = async () => {
+    const character = await getCharacter(param.index)
+    const planet = await getPlanet(character.homeworld)
+    const films = await getFilms(character.films)
+    const species = await getSpecie(character.species)
+
+    if(character && planet && films && species) {
+      setCharacters({
+        character,
+        planet,
+        species: species,
+        films
+      })
+    }
+  }
 
   const { character, planet, films, species } = characters;
   return (

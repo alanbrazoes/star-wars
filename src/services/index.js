@@ -7,7 +7,8 @@ const api = axios.create({
 export const getCharacters = async () => {
   try {
     const response = await api.get('/people')
-    return(await response.data.results)
+    const { data: { results } } = response
+    return results
   } catch (error) {
     return(false)
   }
@@ -16,52 +17,39 @@ export const getCharacters = async () => {
 export const getCharacter = async (param) => {
   try {
     const response = await api.get(`/people/${param}/`)
-    return(await response.data.json())
+    const { data } = response
+    return data
   } catch (error) {
-    return(error)
+    return(false)
   }
 }
 
 export const getPlanet = async (url) => {
-  let response
-  let erro
   try {
-    const data = await axios.get(url)
-    response = data.data.name
+    const response = await axios.get(url)
+    const {data: {name}} = response
+    return name
   } catch (error) {
-    erro = error
-  }
-
-  return {
-    response,
-    erro
+    return false
   }
 }
 
 export const getFilms = async (characterFilms) => {
   const teste = characterFilms.map( async (film) => {
-    const t = await axios.get(film)
-    return t.data.title
+    const response = await axios.get(film)
+    const {data: {title}} = response
+    return title
   })
   const fetch = await Promise.all(teste)
-  return { response: fetch }
+  return fetch
 }
 
 export const getSpecie = async (character) => {
-  let response
-  let erro
-
   try {
-    if (character.length === 0) return { response: response = 'Not defined', erro }
-    response = await axios.get(character)
+    if (character.length === 0) return 'Not defined'
+    const response = await axios.get(character)
+    console.log(response.data)
   } catch (error) {
-    erro = error
-  }
-
-  return {
-    response: response && response.data.name,
-    erro
+    return false
   }
 }
-
-// module.exports = { getCharacters }
