@@ -14,8 +14,8 @@ const CharactersPage = () => {
     let isMounted = true;
     const response = await getCharacters();
     if (response.length && isMounted) {
-      setLoading(false);
       setCharacters(response);
+      setLoading(false);
     }
     return () => {
       isMounted = false;
@@ -43,22 +43,10 @@ const CharactersPage = () => {
           <MainStyle>
             {characters?.map(({ name, birth_year: birth, gender }, i) => (
               <CardCharacter key={name}>
-                <h3 data-testid="name">
-                  Nome:
-                  {name}
-                </h3>
-                <p>
-                  Aniversário:
-                  {birth}
-                </p>
-                <p>
-                  Genero:
-                  {gender}
-                </p>
-                <Button onClick={() => goToDetails(`/details/${i + 1}`)}>
-                  Conhecer
-                  {name}
-                </Button>
+                <h3 data-testid="name">Nome: {name}</h3>
+                <p>Aniversário: {birth}</p>
+                <p>Genero: {gender}</p>
+                <Button onClick={() => goToDetails(`/details/${i + 1}`)}>Conhecer {name}</Button>
               </CardCharacter>
             ))}
           </MainStyle>

@@ -11,4 +11,4 @@ const characterMock = [
   },
 ];
 
-export default characterMock;
+module.exports = { characterMock };

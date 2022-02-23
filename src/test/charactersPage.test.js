@@ -2,11 +2,13 @@ import React from 'react';
 import { screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import '@testing-library/jest-dom/extend-expect';
-import * as apis from '../services';
-import characterMock from './mocks';
 
 import CharactersPage from '../pages/CharactersPage';
 import renderWithRouter from './renderWithRouter';
+
+const { characterMock } = require('./mocks/index');
+
+const mocks = require('../services');
 
 describe('Characters Page', () => {
   it(`When rendering CharactersPage the text 'Loading' appears on the screen.`, () => {
@@ -16,12 +18,12 @@ describe('Characters Page', () => {
   });
 
   it('Should render persons in screen.', async () => {
-    const getCharacters = (apis.getCharacters = jest.fn().mockImplementation(() => characterMock));
+    mocks.getCharacters = jest.fn().mockImplementation(() => characterMock);
 
     const { queryByText, queryByRole } = renderWithRouter(<CharactersPage />);
     await waitFor(() => {
-      expect(getCharacters).toBeCalled();
-      expect(queryByText(/nome: alan/i)).toBeTruthy();
+      expect(mocks.getCharacters).toBeCalled();
+      expect(queryByRole('heading', { name: 'Nome: Alan', level: 3 })).toBeInTheDocument();
       expect(queryByText(/Aniversário: 2000/i)).toBeTruthy();
       expect(queryByText(/genero: male/i)).toBeTruthy();
       expect(queryByRole('button', { name: /conhecer alan/i })).toBeTruthy();
