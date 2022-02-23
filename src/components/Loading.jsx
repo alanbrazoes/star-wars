@@ -2,19 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 
 const LoadingContainer = styled.div`
-  /* border: 1px solid white; */
   heigth: 90vh;
   width: 100vw;
   display: flex;
   justify-content: center;
-`
+`;
 
 const LoadingComponent = () => {
-  return(
+  return (
     <LoadingContainer>
       <h3>Loading...</h3>
     </LoadingContainer>
-  )
-}
+  );
+};
 
-export default LoadingComponent
+export default LoadingComponent;

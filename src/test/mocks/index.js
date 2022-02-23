@@ -1,14 +1,14 @@
-const character_mock = [
+const characterMock = [
   {
     name: 'Alan',
     gender: 'male',
-    birth_year: 2000
+    birth_year: 2000,
   },
   {
     name: 'Liza',
     gender: 'famale',
     birth_year: 1995,
-  }
-]
+  },
+];
 
-export {character_mock}
+export default characterMock;

@@ -1,0 +1,38 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest/globals": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "plugin:prettier/recommended",
+    "eslint:recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "parser": "@babel/eslint-parser"
+  },
+  "parser": "babel-eslint",
+  "plugins": [
+    "react",
+    "jest"
+  ],
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "no-use-before-define": ["error", { "functions": true, "classes": true, "variables": true }],
+    "react/function-component-definition": ["error", {
+      "namedComponents": "arrow-function"
+    }],
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error"
+  }
+}

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
 const Reset = createGlobalStyle`
   * {
@@ -25,6 +25,6 @@ const Reset = createGlobalStyle`
     font-size: 1rem;
     color: #adb5bd;
   }
-`
+`;
 
 export default Reset;
