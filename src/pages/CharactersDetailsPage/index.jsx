@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 
-import { getCharacter, getFilms, getPlanet, getSpecie } from '../../services';
+import { getCharacter, getPlanet, getFilms, getSpecie } from '../../services/index';
 import { Main, Header, Button } from './style';
 import Dados from '../../components/Dados';
 import { Loading } from '../CharactersPage/style';

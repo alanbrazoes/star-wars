@@ -1,12 +1,10 @@
-// import axios from 'axios';
-
-const axios = require('axios');
+import axios from 'axios';
 
 const api = axios.create({
   baseURL: 'https://swapi.dev/api',
 });
 
-const getCharacters = async () => {
+export const getCharacters = async () => {
   try {
     const response = await api.get('/people');
     const {
@@ -18,7 +16,7 @@ const getCharacters = async () => {
   }
 };
 
-const getCharacter = async (param) => {
+export const getCharacter = async (param) => {
   try {
     const response = await api.get(`/people/${param}/`);
     const { data } = response;
@@ -28,7 +26,7 @@ const getCharacter = async (param) => {
   }
 };
 
-const getPlanet = async (url) => {
+export const getPlanet = async (url) => {
   try {
     const response = await axios.get(url);
     const {
@@ -40,7 +38,7 @@ const getPlanet = async (url) => {
   }
 };
 
-const getFilms = async (characterFilms) => {
+export const getFilms = async (characterFilms) => {
   const teste = characterFilms.map(async (film) => {
     const response = await axios.get(film);
     const {
@@ -52,14 +50,12 @@ const getFilms = async (characterFilms) => {
   return fetch;
 };
 
-const getSpecie = async (character) => {
+export const getSpecie = async (character) => {
   try {
     if (character.length === 0) return 'Not defined';
-    const response = await axios.get(character);
-    return response.data;
+    const response = await axios.get(character[0]);
+    return response.data.name;
   } catch (error) {
     return false;
   }
 };
-
-module.exports = { getCharacters, getCharacter, getFilms, getSpecie, getPlanet };
