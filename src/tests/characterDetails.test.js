@@ -20,7 +20,6 @@ describe('', () => {
 
     history.push('/details/1');
     const { getByText, queryByText } = renderWithRouter(<CharactersDetailsPage />);
-
     const { pathname } = history.location;
 
     expect(pathname).toBe('/details/1');
