@@ -4,7 +4,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { getCharacter, getPlanet, getFilms, getSpecie } from '../../services/index';
 import { Main, Header, Button } from './style';
 import Dados from '../../components/Dados';
-import { Loading } from '../CharactersPage/style';
+import Loading from '../../components/Loading';
 
 const CharactersDetailsPage = () => {
   const param = useParams();

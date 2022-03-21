@@ -36,6 +36,7 @@
     "jest/valid-expect": "error",
     "no-console": "off",
     "react/prop-types": 0,
-    "camelcase": "off"
+    "camelcase": "off",
+    "no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }]
   }
 }

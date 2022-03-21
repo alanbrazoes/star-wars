@@ -7,10 +7,16 @@ const Reset = createGlobalStyle`
     font-family: 'Ubuntu', sans-serif;
   }
 
+  #root {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
   body {
     background-color: #020202;
     width: 100%;
-    height: 100%;
+    height: 100vh;
   }
 
   section {

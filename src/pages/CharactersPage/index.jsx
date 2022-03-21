@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { getCharacters } from '../../services';
-import { Header, Loading, MainStyle, Button, CardCharacter } from './style';
+import { Header, MainStyle, Button, CardCharacter } from './style';
+import LoadingComponent from '../../components/Loading';
 
 const CharactersPage = () => {
   const history = useHistory();
@@ -36,22 +37,20 @@ const CharactersPage = () => {
         <h1 data-testid="title">Star Wars</h1>
       </Header>
 
-      <div>
-        {loading ? (
-          <Loading>Loading...</Loading>
-        ) : (
-          <MainStyle>
-            {characters?.map(({ name, birth_year: birth, gender }, i) => (
-              <CardCharacter key={name}>
-                <h3 data-testid="name">Nome: {name}</h3>
-                <p>Aniversário: {birth}</p>
-                <p>Genero: {gender}</p>
-                <Button onClick={() => goToDetails(`/details/${i + 1}`)}>Conhecer {name}</Button>
-              </CardCharacter>
-            ))}
-          </MainStyle>
-        )}
-      </div>
+      {loading ? (
+        <LoadingComponent>Loading...</LoadingComponent>
+      ) : (
+        <MainStyle>
+          {characters?.map(({ name, birth_year: birth, gender }, i) => (
+            <CardCharacter key={name}>
+              <h3 data-testid="name">Nome: {name}</h3>
+              <p>Aniversário: {birth}</p>
+              <p>Genero: {gender}</p>
+              <Button onClick={() => goToDetails(`/details/${i + 1}`)}>Conhecer {name}</Button>
+            </CardCharacter>
+          ))}
+        </MainStyle>
+      )}
     </>
   );
 };

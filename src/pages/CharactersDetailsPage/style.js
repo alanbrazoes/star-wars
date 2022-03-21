@@ -27,24 +27,25 @@ export const Button = styled.button`
   cursor: pointer;
   width: 100px;
   margin: 16px;
-  background-color: #020202;
-  border: 2px solid #ffb703;
+  background-color: ${(props) => props.theme.colors.background};
+  border: 2px solid;
+  border-color: ${(props) => props.theme.colors.primary};
   color: lightgray;
   padding: 4px;
 
   &:hover {
-    border: 2px solid #d00000;
-    background-color: #6a040f;
+    border: 2px solid;
+    border-color: ${(props) => props.theme.colors.secundary};
+    background-color: ${(props) => props.theme.colors.hover};
     transition: 0.2s;
   }
 `;
 export const Loading = styled.h3`
   width: 100%;
-  heigth: 100%;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  color: #ffb703;
+  color: ${(props) => props.theme.colors.primary};
 `;
