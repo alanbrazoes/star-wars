@@ -26,7 +26,6 @@ describe('Characters Page', () => {
       expect(queryByRole('heading', { name: 'Nome: Alan', level: 3 })).toBeInTheDocument();
       expect(queryByText(/Aniversário: 2000/i)).toBeTruthy();
       expect(queryByText(/genero: male/i)).toBeTruthy();
-      expect(queryByRole('button', { name: /conhecer alan/i })).toBeTruthy();
     });
   });
 });
