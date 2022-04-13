@@ -4,13 +4,16 @@ export const Main = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 1;
+  justify-content: center;
+  height: 100%;
 `;
 
 export const Section = styled.section`
   display: flex;
   flex-direction: column;
-  width: fit-content;
+  align-items: center;
+  width: 100vw;
+  height: 100%;
 `;
 
 export const Header = styled.header`
@@ -22,6 +25,7 @@ export const Div = styled.div`
   border: 4px solid gray;
   margin: 4px;
   padding: 4px;
+  width: fit-content;
 `;
 
 export const Button = styled.button`
@@ -40,13 +44,4 @@ export const Button = styled.button`
     background-color: ${(props) => props.theme.colors.hover};
     transition: 0.2s;
   }
-`;
-export const Loading = styled.h3`
-  width: 100%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  color: ${(props) => props.theme.colors.primary};
 `;
