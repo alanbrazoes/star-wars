@@ -24,8 +24,13 @@ export const Header = styled.header`
 export const Div = styled.div`
   border: 4px solid gray;
   margin: 4px;
-  padding: 4px;
-  width: fit-content;
+  padding: 8px;
+  width: 20%;
+
+  h2,
+  p {
+    font-size: 1.2em;
+  }
 `;
 
 export const Button = styled.button`
