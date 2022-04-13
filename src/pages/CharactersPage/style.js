@@ -1,72 +1,58 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-const breatheAnimation = keyframes`
- 0% { 100px; opacity: 0;}
- 100% { opacity: 1; }
-`;
-
-export const CardCharacter = styled.section`
+export const CardCharacter = styled(motion.section)`
   display: flex;
   flex-direction: column;
 
   align-items: center;
 
   min-height: content;
-  width: 90%;
+  width: 80%;
 
   margin: 4px;
-  border: 4px solid gray;
+  border: 2px solid gray;
+  border-radius: 5px;
   padding: 4px;
 
-  animation-name: ${breatheAnimation};
-  animation-duration: 0.4s;
+  .link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    width: 100%;
+  }
 
   @media (max-width: 426px) {
     min-width: 80vh;
   }
 `;
 
-export const MainStyle = styled.main`
+export const MainStyle = styled(motion.main)`
   display: flex;
   flex-wrap: wrap;
 
   max-width: 100%;
-  min-width: 100%;
+  min-width: 70%;
+
   @media (max-width: 425px) {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 
   @media (min-width: 530px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    align-content: center;
   }
 
   @media (min-width: 768px) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-  }
-`;
-
-export const Button = styled.button`
-  background-color: ${(props) => props.theme.colors.background};
-  color: white;
-
-  cursor: pointer;
-
-  flex-grow: 1;
-  width: 80%;
-  height: 20%;
-  border: 2px solid;
-  border-color: ${(props) => props.theme.colors.primary};
-  padding: 2px;
-  margin: 4px;
-
-  &:hover {
-    border: 2px solid;
-    border-color: ${(props) => props.theme.colors.secundary};
-    background-color: ${(props) => props.theme.colors.hover};
-    transition: 0.2s;
+    justify-items: center;
+    align-content: center;
   }
 `;
 
