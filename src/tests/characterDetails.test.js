@@ -1,8 +1,10 @@
 import React from 'react';
 import { waitFor } from '@testing-library/react';
+import { ThemeProvider } from 'styled-components';
 import CharactersPage from '../pages/CharactersPage';
 import renderWithRouter from './renderWithRouter';
 import CharactersDetailsPage from '../pages/CharactersDetailsPage';
+import theme from '../style/global';
 
 const { characterMock, character } = require('./mocks/index');
 const mocks = require('../services');
@@ -19,7 +21,11 @@ describe('', () => {
     mocks.getSpecie = jest.fn().mockImplementation(() => 'Human');
 
     history.push('/details/1');
-    const { getByText, queryByText } = renderWithRouter(<CharactersDetailsPage />);
+    const { getByText, queryByText } = renderWithRouter(
+      <ThemeProvider theme={theme}>
+        <CharactersDetailsPage />
+      </ThemeProvider>
+    );
     const { pathname } = history.location;
 
     expect(pathname).toBe('/details/1');
