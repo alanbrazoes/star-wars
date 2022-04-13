@@ -4,7 +4,9 @@ import LoadingContainer from './style';
 const LoadingComponent = () => {
   return (
     <LoadingContainer>
-      <h3>Loading...</h3>
+      <div className="outSide">
+        <div className="inSide" />
+      </div>
     </LoadingContainer>
   );
 };

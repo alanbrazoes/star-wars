@@ -53,7 +53,7 @@ const CharactersPage = () => {
       </Header>
 
       {loading ? (
-        <LoadingComponent>Loading...</LoadingComponent>
+        <LoadingComponent />
       ) : (
         <MainStyle initial="hidden" animate="visible" variants={listCards}>
           {characters?.map(({ name, birth_year: birth, gender }, i) => (

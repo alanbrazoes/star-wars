@@ -4,6 +4,7 @@ export const Main = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 1;
 `;
 
 export const Section = styled.section`

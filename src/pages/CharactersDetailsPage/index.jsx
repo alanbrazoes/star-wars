@@ -54,7 +54,7 @@ const CharactersDetailsPage = () => {
       </Header>
       <Main>
         {character === '' ? (
-          <Loading> Loading... </Loading>
+          <Loading />
         ) : (
           <>
             <h1>{character.name}</h1>
