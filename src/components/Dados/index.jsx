@@ -1,5 +1,5 @@
 import React from 'react';
-import { Section, Div } from '../../pages/CharactersDetailsPage/style';
+import { Section, Div } from './style';
 
 const Dados = ({ character, planet, films, species }) => {
   const { gender, birth_year, eye_color, height, mass, skin_color, hair_color } = character;

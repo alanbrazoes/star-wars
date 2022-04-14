@@ -2,9 +2,7 @@ import styled, { keyframes } from 'styled-components';
 
 const Rotate = keyframes`
   0% {transform: scale(1) rotate(360deg)}
-
   50% {transform: scale(1) rotate(-360deg)}
-
   100% {transform: scale(1) rotate(360deg)}
 `;
 

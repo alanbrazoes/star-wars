@@ -8,29 +8,9 @@ export const Main = styled.main`
   height: 100%;
 `;
 
-export const Section = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100vw;
-  height: 100%;
-`;
-
 export const Header = styled.header`
   display: flex;
   justify-content: center;
-`;
-
-export const Div = styled.div`
-  border: 4px solid gray;
-  margin: 4px;
-  padding: 8px;
-  width: 20%;
-
-  h2,
-  p {
-    font-size: 1.2em;
-  }
 `;
 
 export const Button = styled.button`
